@@ -1,0 +1,42 @@
+﻿@model LivrariaAnnaMVC.Models.BookModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes do livro</h1>
+
+<div>
+    <h4>BookModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Título
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            ISBN
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Isbn)
+        </dd>
+        <dt class = "col-sm-2">
+            Data de publicação
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class = "col-sm-2">
+            Autor
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Author.AuthorLastName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.BookId">Editar</a> |
+    <a asp-action="Index">Retornar para a lista</a>
+</div>

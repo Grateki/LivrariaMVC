@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LivrariaAnnaMVC.Models.AuthorModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Autores</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Cadastrar autor</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Sobrenome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Nascimento</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birth)
+            </td>
+            <td>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.AuthorId">Editar</a> 
+                        <a asp-action="Details" class="btn btn-warning" asp-route-id="@item.AuthorId">Detalhes</a> 
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.AuthorId">Deletar</a>
+                    </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

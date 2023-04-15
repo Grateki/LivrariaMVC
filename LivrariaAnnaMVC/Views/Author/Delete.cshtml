@@ -1,0 +1,23 @@
+﻿@model LivrariaAnnaMVC.Models.AuthorModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+
+<h3>Tem certeza que quer deletar esse autor?</h3>
+<div>
+    @Html.DisplayFor(model => model.AuthorName)
+    @Html.DisplayFor(model => model.AuthorLastName)
+
+
+
+
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AuthorId" />
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-action="Index">Retornar para a lista</a>
+    </form>
+</div>
